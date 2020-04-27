@@ -1,9 +1,6 @@
 # -*-coding:Utf-8 -*
+#!/usr/bin/env python3
 
-"""
-Ce fichier contient le code principal du jeu.
-Exécutez-le avec Python pour lancer le jeu.
-"""
 
 import os
 import sys
@@ -51,16 +48,25 @@ def choose_map_game():
         i += 1
     print(" ")
 
-    number_choose = int(input("Enter a number to select the maze : "))
-    # Check if the number is correct and no higher to the map_games number
-    if number_choose > j:
-        print("The number typed is higher of the map_games number.")
-    else:
+    asking_number = True
+
+    while asking_number:
+        try:
+            print("")
+            number_choose = int(input("Enter a number to select the maze : "))
+            # Check if the number is correct and no higher to the map_games number
+            if int(number_choose) > j:
+                print("The number typed is higher of the map_games number.")
+            else:
+                asking_number=False
+        except ValueError:
+            print("Only letters beetween 1 to",j,"are allowed")
+
         # Show the map_game selected
-        print("")
-        print(map_game[number_choose - 1])
-        show_map = map_game[number_choose - 1]
-        line_tab.extend(show_map[:].split('\n'))
+    print("")
+    print(map_game[int(number_choose) - 1])
+    show_map = map_game[int(number_choose) - 1]
+    line_tab.extend(show_map[:].split('\n'))
 
 
 """
@@ -80,30 +86,38 @@ def check_if_game_session_open():
             choose_map_game()
 
         else:
-            print(" ")
-            print(
-                "A party is saved, do you want to continue? "
-                "(Y/N)"
-            )
-            selection = input()
-            if selection.lower() == 'y':
-                print("we'll continue the party")
-                map_game = Carte.load_game(file_histo)
-                map_game = str('\n' .join(
-                            ''.join(str(
-                                cell) for cell in row
-                                ) for row in map_game
-                            ))
-                print(map_game)
-                line_tab.extend(map_game[:].split('\n'))
+            valide_selection=True
+            while valide_selection:
+                try:
+                    print(" ")
+                    print(
+                        "A party is saved, do you want to continue? "
+                        "(Y/N)"
+                    )
+                    selection = input()
+                    if selection.lower() == 'y':
+                        print("we'll continue the party")
+                        map_game = Carte.load_game(file_histo)
+                        map_game = str('\n' .join(
+                                    ''.join(str(
+                                        cell) for cell in row
+                                        ) for row in map_game
+                                    ))
+                        print(map_game)
+                        line_tab.extend(map_game[:].split('\n'))
+                        valide_selection=False
 
-            elif selection.lower() == 'n':
-                print("New game")
-                Carte.delete_game(name_file_histo)
-                print("Old party deleted.")
-                choose_map_game()
-            else:
-                print("wrong command.")
+                    elif selection.lower() == 'n':
+                        print("New game")
+                        Carte.delete_game()
+                        print("Old party deleted.")
+                        choose_map_game()
+                        valide_selection=False
+                    else:
+                        print("You wrote a wrong command. Please retry.")
+                except ValueError:
+                    print("problem")
+
     else:  # The file doesn't exist
         histo = {}
 
@@ -149,7 +163,7 @@ while continue_game:
         command = str(input().lower())
 
         if command == 'q':
-            Carte.save_game(name_file_histo, map_game_array)
+            Carte.save_game(map_game_array)
             Carte.leave_game()
             sys.exit()
 

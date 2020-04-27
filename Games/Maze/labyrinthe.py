@@ -1,4 +1,5 @@
 # -*-coding:Utf-8 -*
+#!/usr/bin/env python3
 
 """Ce module contient la classe Labyrinthe."""
 
