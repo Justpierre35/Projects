@@ -26,33 +26,30 @@ https://openclassrooms.com/courses/apprenez-a-programmer-en-python
 </ui>
 <p>&nbsp;</p>
 <h3>Maze display</h3>
-The maze is seen from above. A symbol represents an obstacle or your own robot. You can refer to the example to get more information. To recognize the nature of the obstaclesm one must obviously represent each obstacle by a different symbol. Otherwise, it will be difficult to differentiate the walls of exit doors.
+<p>The maze is seen from above. A symbol represents an obstacle or your own robot. You can refer to the example to get more information.</p> <p>To recognize the nature of the obstaclesm one must obviously represent each obstacle by a <strong>different symbol</strong>. Otherwise, it will be difficult to differentiate the walls of exit doors.</p>
+<p>&nbsp;</p>
 
- 
-
-Games features
-The game must :
-
-Automatically save each game for each move to allow them to continue later ;
-Offer several maps that are easy to edit. Each of the available maps will be in a file with the extention txt in a particular folder. It will therefor be easy to add, delete or modify maps.
- 
-
-Ath the launch of the program
-The first thing to do is to find the existing maps, kept in our txt files, to load tham and to check that a game was not in progress. If a game is in progress, offer to continue this game (see the below example).
-
-Choosing a map start the game. The same thing happens if you ask to play an already existing game. On each turn, the maze is displayed with the position of each obstacle and the position of the robot.
-
- 
-
- 
-
-Return examples
-Below you can find out what we could see when running the program. Note that :
-
-The symbols used are O for a wall, . for a door, U for the exit and X for the robot itself ;
-The robot cannot pass through walls ;
-The example below in an example of the easy card : facile.
-python roboc.py
+<h3>Games features</h3>
+<p>The game must :</p>
+<ul>
+ <li><strong>Automatically save</strong> each game for each move to allow them to continue later ;</li>
+ <li><strong>Offer several maps</strong> that are easy to edit. Each of the available maps will be in a file with the extention <em>txt</em> in a particular folder. It will therefore be easy to add, delete or modify maps.</li>
+ </ul>
+ <p>&nbsp;</p>
+<ul>
+<h3>At the launch of the program</h3>
+<p>The first thing to do is to find the existing maps, kept in our <em>txt</em> files, to load them and to check that a game was not in progress. If a game is in progress, <strong>offer to continue this game</strong> (see the below example).</p>
+<p>Choosing a map start the game. The same thing happens if you ask to play an already existing game. On each turn, the maze is displayed with the position of each obstacle and the position of the robot.</p>
+</ul>
+<p>&nbsp;</p>
+<h3>Return examples</h3>
+<p>Below you can find out what we could see when running the program. Note that :</p>
+<ul>
+<li>The symbols used are O for a wall, . for a door, U for the exit and X for the robot itself ;</li>
+<li>The robot cannot pass through walls ;</li>
+<li>The example below in an example of the easy card : <em>facile</em>.</li>
+</ul>
+<pre>python roboc.py<br>
 
 Existing mazes :
   1 - facile.
@@ -150,3 +147,4 @@ That's the way out
 
 
 You win !!!
+</pre>
