@@ -233,16 +233,3 @@ Generate sample report
 <ql-activity-tracking step="2">
 Challenge: Sales summary
 </ql-activity-tracking></p>
-<h2 id="step5">Optional challenge</h2>
-<p>As <strong>optional</strong> challenges, you could try some of the following functionalities:</p>
-<ol>
-<li>
-<p>Sort the list of cars in the PDF by total sales.</p>
-</li>
-<li>
-<p>Create a pie chart for the total sales of each car made.</p>
-</li>
-<li>
-<p>Create a bar chart showing total sales for the top 10 best selling vehicles using the  <a href="https://www.reportlab.com/software/diagra/">ReportLab Diagra library</a>. Put the vehicle name on the X-axis and <strong>total revenue</strong> (remember, price * total sales!) along the Y-axis.</p>
-</li>
-</ol>
